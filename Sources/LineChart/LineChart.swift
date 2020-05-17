@@ -1,17 +1,17 @@
 #if canImport(UIKit)
 import UIKit
 
-protocol ChartViewDelegate: class {
+public protocol LineChartDelegate: class {
     func didBeginPanning(_ result: TouchTrackerData)
     func didEndPanning(_ result: TouchTrackerData)
 }
 
-extension ChartViewDelegate {
+extension LineChartDelegate {
     func didBeginPanning(_ result: TouchTrackerData) {}
     func didEndPanning(_ result: TouchTrackerData) {}
 }
 
-public class ChartView: UIView {
+public class LineChart: UIView {
     // MARK: - Data
     open var data: [CGPoint]? {
         didSet {
@@ -65,7 +65,7 @@ public class ChartView: UIView {
     open var isTouchTrackingEnabled: Bool = true
     
     // MARK: - Delegate
-    open weak var delegate: ChartViewDelegate?
+    open weak var delegate: LineChartDelegate?
     
     // MARK: - Init
     fileprivate var offset: CGFloat = 0
@@ -86,7 +86,7 @@ public class ChartView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         self.layer.sublayers?.removeAll()
         
         lineLayer = LineLayer(strokeColor: lineColor, lineWidth: lineWidth)

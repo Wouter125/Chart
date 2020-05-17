@@ -10,13 +10,13 @@
 import UIKit
 
 // MARK: - Line
-enum LineType {
+public enum LineType {
     case bezier
     case linear
 }
 
 // MARK: - Touch Tracker
-struct TouchTrackerData {
+public struct TouchTrackerData {
     var touchCoords: CGPoint
     var lineCoords: CGPoint
     var data: CGPoint
@@ -24,7 +24,7 @@ struct TouchTrackerData {
 
 
 // MARK: - Axes
-struct xAxis {
+public struct xAxis {
     var isHidden: Bool
     var count: Int?
     var labels: [String]?
@@ -36,7 +36,7 @@ struct xAxis {
     }
 }
 
-struct yAxis {
+public struct yAxis {
     var isHidden: Bool
     var count: Int?
     
@@ -46,7 +46,7 @@ struct yAxis {
     }
 }
 
-struct AxesConfiguration {
+public struct AxesConfiguration {
     var x: xAxis
     var y: yAxis
     var color: CGColor

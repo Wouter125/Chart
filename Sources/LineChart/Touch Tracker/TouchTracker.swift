@@ -8,7 +8,7 @@
 #if canImport(UIKit)
 import UIKit
 
-class TouchTracker: ChartView {
+class TouchTracker: LineChart {
     private var offset: CGFloat!
     private var dataPoints: [CGPoint]!
     private var screenLocationPoints: [CGPoint]!
