@@ -17,9 +17,9 @@ public enum LineType {
 
 // MARK: - Touch Tracker
 public struct TouchTrackerData {
-    var touchCoords: CGPoint
-    var lineCoords: CGPoint
-    var data: CGPoint
+    public var touchCoords: CGPoint
+    public var lineCoords: CGPoint
+    public var data: CGPoint
     
     public init(touchCoords: CGPoint, lineCoords: CGPoint, data: CGPoint) {
         self.touchCoords = touchCoords
@@ -52,11 +52,11 @@ public struct yAxis {
 }
 
 public struct AxesConfiguration {
-    var x: xAxis
-    var y: yAxis
-    var color: CGColor
-    var width: CGFloat
-    var labelColor: CGColor
+    public var x: xAxis
+    public var y: yAxis
+    public var color: CGColor
+    public var width: CGFloat
+    public var labelColor: CGColor
     
     public init(x: xAxis, y: yAxis, color: CGColor, width: CGFloat, labelColor: CGColor) {
         self.x = x
