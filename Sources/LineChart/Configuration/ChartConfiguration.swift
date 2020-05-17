@@ -30,9 +30,9 @@ public struct TouchTrackerData {
 
 // MARK: - Axes
 public struct xAxis {
-    var isHidden: Bool
-    var count: Int?
-    var labels: [String]?
+    public var isHidden: Bool
+    public var count: Int?
+    public var labels: [String]?
     
     public init(isHidden: Bool, count: Int? = nil, labels: [String]? = nil) {
         self.isHidden = isHidden
@@ -42,8 +42,8 @@ public struct xAxis {
 }
 
 public struct yAxis {
-    var isHidden: Bool
-    var count: Int?
+    public var isHidden: Bool
+    public var count: Int?
     
     public init(isHidden: Bool, count: Int? = nil) {
         self.isHidden = isHidden
