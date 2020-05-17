@@ -11,7 +11,7 @@ extension ChartViewDelegate {
     func didEndPanning(_ result: TouchTrackerData) {}
 }
 
-class ChartView: UIView {
+public class ChartView: UIView {
     // MARK: - Data
     open var data: [CGPoint]? {
         didSet {
