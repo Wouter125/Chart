@@ -131,7 +131,7 @@ public class LineChart: UIView {
         }
         
         if isTouchTrackingEnabled {
-            touchTracker = TouchTracker(frame: frame, points: data, chartMap: transform, offset: offset)
+            touchTracker = TouchTracker(frame: frame, inset: inset, points: data, chartMap: transform, offset: offset)
             let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(recognizer:)))
             self.addGestureRecognizer(panGesture)
         }
