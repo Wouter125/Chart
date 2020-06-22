@@ -16,14 +16,15 @@ class TouchTracker: LineChart {
     
     init(frame: CGRect, inset: UIEdgeInsets, points: [CGPoint], chartMap: CGAffineTransform, offset: CGFloat) {
         super.init(frame: CGRect(
-            x: inset.left,
-            y: inset.top,
-            width: frame.width - inset.right - inset.left,
+            x: frame.origin.x,
+            y: frame.origin.y - inset.bottom,
+            width: frame.width,
             height: frame.height - inset.bottom
         ))
         
         self.dataPoints = points
         self.screenLocationPoints = points.map{ $0.applying(chartMap) }
+        
         self.offset = offset
         
         calculateControlPoints()
@@ -54,7 +55,7 @@ class TouchTracker: LineChart {
 
         return TouchTrackerData(
             touchCoords: touchPoint,
-            lineCoords: CGPoint(x: touchPoint.x, y: yValue.coords + super.frame.origin.y),
+            lineCoords: CGPoint(x: touchPoint.x + super.frame.origin.x, y: yValue.coords + super.frame.origin.y),
             data: CGPoint(x: xValue + offset, y: yValue.data)
         )
     }
