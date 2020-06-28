@@ -30,12 +30,12 @@ public class LineChart: UIView {
     }
     
     // MARK: - Graph
-    open var inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 24)
+    open var inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     
     // MARK: - Axes
     open var axesConfiguration: AxesConfiguration = AxesConfiguration(
-        x: xAxis(isHidden: false, count: nil),
-        y: yAxis(isHidden: false, count: nil),
+        x: xAxis(isHidden: true, count: nil),
+        y: yAxis(isHidden: true, count: nil),
         color: UIColor.systemGray5.cgColor,
         width: 1.0,
         labelColor: UIColor.systemGray.cgColor
