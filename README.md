@@ -1,8 +1,62 @@
-# LineChart
+# Line Chart
 
-### Configuration
+Line Chart is a simple and light-weight line chart component for iOS. It's fully written in Swift, based upon UIView, and highly customizable. It currently supports the following features;
 
-#### Graph
+- [x] Bezier Curves
+- [x] Linear Curves
+- [x] Touch Tracking for linear and bezier curves
+- [x] Fully customizable axes
+- [x] Graph points
+- [x] Animation control when switching between data sets
+
+## How to install
+
+Currently Line Chart is only available through the [Swift Package Manager](https://swift.org/package-manager/) or manual install. 
+
+1. Installation through Swift Package Manager can be done by going to `File > Swift Packages > Add Package Dependency`. Then enter the following line;
+```https://github.com/Wouter125/Chart```
+
+2. Manual installation can be done by cloning this repository and dragging all assets into your Xcode Project.
+
+## How to use
+
+To give you an idea of how to configure the line chart here are two examples. For more details see Parameters.
+
+**Linear line with graph points and axes**
+```
+private let graph: LineChart = {
+    let graph = LineChart()
+    graph.lineType = .linear
+    
+    graph.isAnimated = false
+
+    graph.axesConfiguration.x.isHidden = false
+    graph.axesConfiguration.y.isHidden = false
+
+    graph.inset = UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 24)
+    graph.showPoints = true
+
+    return graph
+}()
+```
+
+**Bezier line with custom animation curves**
+```
+private let graph: LineChart = {
+    let graph = LineChart()
+    graph.lineType = .bezier
+    
+    graph.isAnimated = true
+    graph.animationCurve = .easeInEaseOut
+    graph.animationDuration = 1.5
+    
+    return graph
+}()
+```
+
+## Parameters
+
+### Graph
 
 | Parameter              | Type        | Default                                            | Description                                                                                 |
 |------------------------|-------------|----------------------------------------------------|---------------------------------------------------------------------------------------------|
@@ -11,10 +65,19 @@
 | isTouchTrackingEnabled | Bool        | true                                               | Enable or disable the ability to pan on the graph to retrieve the data on the touched point |
 
 
-#### Axes
+### Axes
+Axes is using a custom `struct` called `AxesConfiguration` which consists out of the following options;
+
+| Parameter  | Type    | Default                           | Description                                                                               |
+|------------|---------|-----------------------------------|-------------------------------------------------------------------------------------------|
+| x          | xAxis   | xAxis(isHidden: true, count: nil) | Defines whether the x axis should be shown, and if show how many of them there should be. |
+| y          | yAxis   | yAxis(isHidden: true, count: nil) | Defines whether the x axis should be shown, and if show how many of them there should be. |
+| color      | CGColor | UIColor.systemGray5.cgColor       | The color of the axes                                                                     |
+| width      | CGFloat | 1.0                               | The width of the axes                                                                     |
+| labelColor | CGColor | UIColor.systemGray.cgColor        | The color of the labels of the axes                                                       |
 
 
-#### Line
+### Line
 
 | Parameter        | Type      | Default                             | Description                                                                |
 |------------------|-----------|-------------------------------------|----------------------------------------------------------------------------|
@@ -24,7 +87,8 @@
 | showBackground   | Bool      | true                                | Show a gradient or solid color below the line                              |
 | backgroundColors | [CGColor] | [systemGreen(0.24), systemGreen(0)] | The colors for the gradient or solid color below the line                  |
 
-#### Points
+### Points
+
 | Parameter         | Type    | Default                     | Description                                                     |
 |-------------------|---------|-----------------------------|-----------------------------------------------------------------|
 | showPoints        | Bool    | false                       | Whether you want to show points at the data points you provided |
@@ -32,7 +96,8 @@
 | pointsBorderColor | CGColor | UIColor.systemGreen.cgColor | The border color of the point                                   |
 | pointsBorderWidth | CGFloat | 2.0                         | The border width of the point                                   |
 
-#### Animation
+### Animation
+
 | Parameter         | Type                  | Default        | Description                                                                |
 |-------------------|-----------------------|----------------|----------------------------------------------------------------------------|
 | isAnimated        | Bool                  | true           | Whether you want to animate the layer when switching data sets             |
