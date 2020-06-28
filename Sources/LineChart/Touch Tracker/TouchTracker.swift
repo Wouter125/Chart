@@ -1,6 +1,6 @@
 //
 //  TouchTracker.swift
-//  
+//
 //
 //  Created by Wouter van de Kamp on 17/05/2020.
 //
@@ -17,7 +17,7 @@ class TouchTracker: LineChart {
     init(frame: CGRect, inset: UIEdgeInsets, points: [CGPoint], chartMap: CGAffineTransform, offset: CGFloat) {
         super.init(frame: CGRect(
             x: inset.left,
-            y: inset.top,
+            y: frame.origin.y + inset.top,
             width: frame.width - inset.right - inset.left,
             height: frame.height - inset.bottom
         ))

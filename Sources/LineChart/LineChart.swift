@@ -2,13 +2,13 @@
 import UIKit
 
 public protocol LineChartDelegate: class {
-    func didBeginPanning(_ result: TouchTrackerData)
-    func didEndPanning(_ result: TouchTrackerData)
+    func didBeginPanning(_ lineChart: LineChart, _ result: TouchTrackerData)
+    func didEndPanning(_ lineChart: LineChart, _ result: TouchTrackerData)
 }
 
 extension LineChartDelegate {
-    func didBeginPanning(_ result: TouchTrackerData) {}
-    func didEndPanning(_ result: TouchTrackerData) {}
+    func didBeginPanning(_ lineChart: LineChart, _ result: TouchTrackerData) {}
+    func didEndPanning(_ lineChart: LineChart, _ result: TouchTrackerData) {}
 }
 
 public class LineChart: UIView {
@@ -30,7 +30,7 @@ public class LineChart: UIView {
     }
     
     // MARK: - Graph
-    open var inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+    open var inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 24)
     
     // MARK: - Axes
     open var axesConfiguration: AxesConfiguration = AxesConfiguration(
@@ -144,9 +144,9 @@ public class LineChart: UIView {
             switch recognizer.state {
             case .began, .changed:
                 if touchPoint.x < inset.left || touchPoint.x > (self.bounds.width - inset.right) { return }
-                delegate?.didBeginPanning(touchTrackerData)
+                delegate?.didBeginPanning(self, touchTrackerData)
             case .ended:
-                delegate?.didEndPanning(touchTrackerData)
+                delegate?.didEndPanning(self, touchTrackerData)
             default: break
             }
         }
