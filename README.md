@@ -20,7 +20,8 @@ Currently Line Chart is only available through the [Swift Package Manager](https
 
 ## How to use
 
-To give you an idea of how to configure the line chart here are two examples. For more details see Parameters.
+To give you an idea of how to configure the line chart here are two examples. For more details see [Parameters](#parameters)
+.
 
 **Linear line with graph points and axes**
 ```
@@ -54,7 +55,7 @@ private let graph: LineChart = {
 }()
 ```
 
-## Parameters
+##Parameters
 
 ### Graph
 
@@ -66,7 +67,7 @@ private let graph: LineChart = {
 
 
 ### Axes
-Axes is using a custom `struct` called `AxesConfiguration` which consists out of the following options;
+Axes uses a `struct` called `AxesConfiguration` which consists out of the following options;
 
 | Parameter  | Type    | Default                           | Description                                                                               |
 |------------|---------|-----------------------------------|-------------------------------------------------------------------------------------------|
