@@ -55,7 +55,7 @@ private let graph: LineChart = {
 }()
 ```
 
-##Parameters
+## Parameters
 
 ### Graph
 
