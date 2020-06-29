@@ -20,8 +20,7 @@ Currently Line Chart is only available through the [Swift Package Manager](https
 
 ## How to use
 
-To give you an idea of how to configure the line chart here are two examples. For more details see [Parameters](#parameters)
-.
+To give you an idea of how to configure the line chart here are two examples. For more details see [parameters](#parameters).
 
 **Linear line with graph points and axes**
 ```
